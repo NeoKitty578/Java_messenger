@@ -12,12 +12,16 @@ import java.util.Scanner;
 public class JavaMessengerApplication { //testing gut changes
     
     //My Classes
+    public class Account {
+        private String username;
+        private String password;
+    }
     //my class
     public class Login {
         private String name; //encaspulation = restricting access
         private String surname;
-        private String username;
-        private String password;
+       // private String username;
+       // private String password;
         private String phonenumber;
         
         //constructor 
