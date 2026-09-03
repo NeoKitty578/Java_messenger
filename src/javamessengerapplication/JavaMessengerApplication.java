@@ -123,7 +123,7 @@ public class JavaMessengerApplication { //testing gut changes
             if (fPhonenumber.matches(k)){
                 System.out.println("Cellphone number successfuly added.");
             }else{
-                System.out.println("Cellphone number niocorrectly formatted or does not contain international code.");
+                System.out.println("Cellphone number inccorrectly formatted or does not contain international code.");
                 
             }
         }
