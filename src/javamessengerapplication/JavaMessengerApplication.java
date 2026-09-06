@@ -13,27 +13,22 @@ public class JavaMessengerApplication { //testing gut changes
     
     //My Classes
     public class Account {
+        private String name;
+        private String surname;
         private String username;
         private String password;
-    }
-    //my class
-    public class Login {
-        private String name; //encaspulation = restricting access
-        private String surname;
-       // private String username;
-       // private String password;
         private String phonenumber;
         
         //constructor 
-        public Login (String name, String surname, String username, String password, String phonenumber){
+        public Account (String name, String surname, String username, String password, String phonenumber){
             this.name = name; 
             this.surname = surname;
             this.username = username;
             this.password = password;
-            this.phonenumber = phonenumber;
+            this.phonenumber = phonenumber;            
         }
         
-        //getters
+         //getters
         public String getName(){
             return name;
         }
@@ -50,8 +45,9 @@ public class JavaMessengerApplication { //testing gut changes
             return phonenumber;
         }
         
+       
         //setters
-        public void setName(String newName){
+     public void setName(String newName){
             this.name = newName; 
         }
         public void setSurname(String newSurname){
@@ -65,7 +61,7 @@ public class JavaMessengerApplication { //testing gut changes
         }
         public void setPhonenumber(String newPhonenumber){
             this.phonenumber = newPhonenumber; 
-        }
+        } 
         
         //my methods 
         //this method will validate the username
@@ -82,6 +78,7 @@ public class JavaMessengerApplication { //testing gut changes
             }
         }
         
+        //
         //this method will check if the password meets the requirement.
         static void checkPasswordComplexity(String fpassword){
             boolean hasCapLetter = false;
@@ -117,6 +114,7 @@ public class JavaMessengerApplication { //testing gut changes
             }
         }
         
+        //
         //this method will check the format for the cellphone number
         static void checkCellPhoneNumber(String fPhonenumber){
             //checking if the password meets the standard format
@@ -131,6 +129,28 @@ public class JavaMessengerApplication { //testing gut changes
                 
             }
         }
+    }
+    //my login class
+    public class Login {
+        private String username; //encaspulation = restricting access
+        private String password;
+        
+        //constructor 
+        public Login (String name, String surname, String username, String password, String phonenumber){
+            this.name = name; 
+            this.surname = surname;
+            this.username = username;
+            this.password = password;
+            this.phonenumber = phonenumber;
+        }
+        
+        //setters
+        
+        
+        
+        
+        
+        
     }
     
 
