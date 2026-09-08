@@ -27,7 +27,24 @@ public class JavaMessengerApplication { //testing gut changes
             this.password = password;
             this.phonenumber = phonenumber;            
         }
+    }
+        //other methods will be written here
+    }
+    //my login class
+    public class Login {
+        private String username; //encaspulation = restricting access
+        private String password;
         
+        //constructor 
+        public Login (String name, String surname, String username, String password, String phonenumber){
+            this.name = name; 
+            this.surname = surname;
+            this.username = username;
+            this.password = password;
+            this.phonenumber = phonenumber;
+        } 
+        
+            
          //getters
         public String getName(){
             return name;
@@ -128,28 +145,6 @@ public class JavaMessengerApplication { //testing gut changes
                 System.out.println("Cellphone number inccorrectly formatted or does not contain international code.");
                 
             }
-        }
-    }
-    //my login class
-    public class Login {
-        private String username; //encaspulation = restricting access
-        private String password;
-        
-        //constructor 
-        public Login (String name, String surname, String username, String password, String phonenumber){
-            this.name = name; 
-            this.surname = surname;
-            this.username = username;
-            this.password = password;
-            this.phonenumber = phonenumber;
-        }
-        
-        //setters
-        
-        
-        
-        
-        
         
     }
     
