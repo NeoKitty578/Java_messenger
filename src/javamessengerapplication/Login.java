@@ -60,7 +60,18 @@ public class Login {
        //prefixes = 06,07,08, with or without the plus sign
             String standardRegex = "^(?:\\+27|27|0)[678]\\d{8}$"; 
             
-            if (phonenumber.matches(standardRegex))return true;
+            return phonenumber.matches(standardRegex);
+    }
+    //the register method
+    public static String registerUser(String username, String password){
+        if (!Login.checkUserName(username)) return "Username is not correctly formatted, please ensure that your username contains an underscore and is no more than five characters in length.";
+        if (!Login.checkPasswordComplexity(password)) return "Password is not correctly formatted, please ensure that your password contains at least 8 characters a capital letter and a special character.";
+        return "Username and Password successfully captured.";
+    }
+    //login method
+    public static boolean loginUser(){
+        if (!Login.registerUser(username, password) == null) return false;
+        return true;
     }
     
 }
