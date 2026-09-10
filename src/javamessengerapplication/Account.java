@@ -6,7 +6,7 @@ package javamessengerapplication;
 
 /**
  *
- * @author Neo Lebea -ST10507528
+ * @author Neo Lebea - ST10507528
  */
 //this class will act as an ID, it'll hold user information
 public class Account {
