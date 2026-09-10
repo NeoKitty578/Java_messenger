@@ -13,9 +13,9 @@ package javamessengerapplication;
 public class Login {
    
     //
-    public static boolean checkUserName(String username){
+    public boolean checkUserName(String username){
         if (username == null) return false;
-        return username.contains("_") && username.length()<=5;
+        return username.contains("_") && username.length()>=5;
     }
     //the following method checks if the password meets the requirements.
     //password requirements
@@ -24,7 +24,7 @@ public class Login {
     *Contains a number
     *Contains a special character
     */
-    public static boolean checkPasswordComplexity(String password){
+    public boolean checkPasswordComplexity(String password){
         //if the password is empty or doesnt meet at least 8 characters then return false
         if (password == null || password.length()<8) return false;
         
@@ -54,7 +54,7 @@ public class Login {
     }
     
     //
-    public static boolean checkCellPhoneNumber(String phonenumber){
+    public boolean checkCellPhoneNumber(String phonenumber){
        //checking if the password meets the standard format
        if (phonenumber == null)return false;
        //prefixes = 06,07,08, with or without the plus sign
@@ -63,15 +63,14 @@ public class Login {
             return phonenumber.matches(standardRegex);
     }
     //the register method
-    public static String registerUser(String username, String password){
+    public String registerUser(String username, String password){
         if (!Login.checkUserName(username)) return "Username is not correctly formatted, please ensure that your username contains an underscore and is no more than five characters in length.";
         if (!Login.checkPasswordComplexity(password)) return "Password is not correctly formatted, please ensure that your password contains at least 8 characters a capital letter and a special character.";
         return "Username and Password successfully captured.";
     }
     //login method
-    public static boolean loginUser(){
-        if (!Login.registerUser(username, password) == null) return false;
-        return true;
+    public boolean loginUser(String fUsername, String fPassword){
+        
     }
     
 }
