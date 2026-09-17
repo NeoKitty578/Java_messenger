@@ -23,7 +23,7 @@ public class Login {
     public boolean checkUserName(){
         String username = account.getUsername();//getting the username from the "account"
         if (username == null) return false;
-        return username.contains("_") && username.length()>=5;
+        return username.contains("_") && username.length()<=5;
     }
     //the following method checks if the password meets the requirements.
     //password requirements
@@ -32,6 +32,8 @@ public class Login {
     *Contains a number
     *Contains a special character
     */
+    
+    //Reference : geeksforgeeks 
     public boolean checkPasswordComplexity(){
         String password = account.getPassword();
         //if the password is empty or doesnt meet at least 8 characters then return false
@@ -42,7 +44,7 @@ public class Login {
         boolean hasNumber = false;
         boolean hasChar = false;
         
-        for (int i = 0; i<password.length(); i++){
+        for (int i = 0; i < password.length(); i++){
               //checking if there's a Uppercase letter in the password
               char k = password .charAt(i);
               
@@ -68,7 +70,7 @@ public class Login {
        //checking if the password meets the standard format
        if (phonenumber == null)return false;
        //prefixes = 06,07,08, with or without the plus sign
-            String standardRegex = "^(?:\\+27|27|0)[678]\\d{8}$"; 
+            String standardRegex = "^(\\+27|0)[6-8][0-9]{8}$"; 
             
             return phonenumber.matches(standardRegex);
     }
@@ -93,7 +95,7 @@ public class Login {
     //login status :
     public String returnLoginStatus(boolean isLoggedIn){
        if (isLoggedIn){
-         return "Welcome" +account.getName()+ ","+account.getSurname()+" it is great to see you again";
+         return "Welcome " +account.getName()+ ", "+account.getSurname()+" it is great to see you again";
        } else{
       return "Incorrect username or password";  
     }
