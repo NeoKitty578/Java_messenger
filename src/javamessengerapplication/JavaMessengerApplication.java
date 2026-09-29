@@ -6,7 +6,7 @@ package javamessengerapplication;
 
 /**
  *
- * @author Neo
+ * @author Neo Lebea ST10507528
  */
 import java.util.Scanner;
 public class JavaMessengerApplication { 
@@ -57,7 +57,7 @@ public class JavaMessengerApplication {
       registeredAccount = newAccount;
        }else{
      //allowing the user to retry or to quit
-     System.out.println("Registration failed. Try again?");
+     System.out.println("Registration failed. Try again? /n");
      String choice = userInput.nextLine().trim();
      if (choice.equalsIgnoreCase("n")){
          System.out.println("Registration cancelled. ");
@@ -67,8 +67,7 @@ public class JavaMessengerApplication {
      System.out.println("Let's try registration again."); 
  }
     //
-           System.out.println("=== ACCOUNT LOGIN ===");
-           System.out.println("=== === === === === ===");
+           System.out.println("=== ACCOUNT LOGIN ==="); 
            Login systemLogin = new Login(registeredAccount);
            
            final int maxAttempts = 3;

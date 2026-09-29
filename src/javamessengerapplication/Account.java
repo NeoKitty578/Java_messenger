@@ -17,7 +17,6 @@ public class Account {
     private String phoneNumber;
     
     // constructor to create the Account object
-    
    public Account (String name, String surname, String username, String password, String phoneNumber){
       this.name = name;
       this.surname = surname;
