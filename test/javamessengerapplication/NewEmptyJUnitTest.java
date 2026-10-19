@@ -28,6 +28,7 @@ public class NewEmptyJUnitTest {
     }
     //REGISTER MESSAGE
     @Test 
+    //failure if username and register message is in an incorrect format 
     public void username_incorrect_format_and_register_message(){
         Account a = new Account("Kyle","Smith","kyle!!!!!!","Ch&&sec@ke99!","0821234567");
         Login login = new Login(a);
@@ -56,6 +57,7 @@ public class NewEmptyJUnitTest {
     
     //PHONE NUMBER
     @Test
+    //test correctly formated phone number
     public void phone_correctly_formatted(){
      Account a = new Account ("Kyle","Smith","kyl_1","Ch&&sec@ke99!","+27838968976");
      Login login = new Login(a);
@@ -64,6 +66,7 @@ public class NewEmptyJUnitTest {
     }
     
     @Test
+    //failure if phone format is incorrect
     public void phone_incorrectly_formatted(){
       Account a = new Account ("Kyle","Smith","kyl_1","Ch&&sec@ke99!","08966553");
       Login login = new Login(a);  
@@ -93,5 +96,32 @@ public class NewEmptyJUnitTest {
      String fail = login.returnLoginStatus(false);
      assertEquals("Incorrect username or password", fail);
     }
-  
+  //
+public class LoginTest {
+
+    @Test
+    //test that a username with an undescore and no more than five characters is accepted.
+    public void testValidUsername() {
+        Account account = new Account("Neo", "Lebea", "neo_", "Password1!", "+27718693002");
+        Login login = new Login(account);
+        assertTrue(login.checkUserName());
+    }
+
+    @Test
+    //tests that a username withiut an underscore is rejected
+    public void testInvalidUsernameWithoutUnderscore() {
+        Account account = new Account("Neo", "Lebea", "neo", "Password1!", "+27718693002");
+        Login login = new Login(account);
+        assertFalse(login.checkUserName());
+    }
+
+    @Test
+    //Tests that a password containing an uppercase letter, a number,and a special character meets the password complexity requirements.
+    public void testValidPasswordComplexity() {
+        Account account = new Account("Neo", "Lebea", "neo_", "Password1!", "+27718693002");
+        Login login = new Login(account);
+        assertTrue(login.checkPasswordComplexity());
+    }
+}
+
 }
