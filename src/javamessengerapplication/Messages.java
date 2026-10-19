@@ -7,9 +7,14 @@ package javamessengerapplication;
 //packages
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+//for the json file
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 
 /**
  *
@@ -60,7 +65,7 @@ public class Messages {
     
     // ID REQUIREMENT: must not be longer than 10 characters
     public boolean checkMessageID(){
-        return messageID != null && messageID.length() <= 10;
+        return messageID != null && messageID.matches("\\d{10}");
     }
     
     //MESSAGE REQUIREMENT: message must be 250 characters or less
@@ -72,13 +77,12 @@ public class Messages {
         return "Message exceeds 250 characters by "+ over + ", please reduce the size.";
     }
     
-    /**
-     * Validate recipient format
-     * Current pattern for South African mobile numbers: 
-     * must start with +27
-     * then a digit 1-9 and 8 more digits (total length after the + is 9)
-     * @return
-     */
+    
+     // Validate recipient format
+     //Current pattern for South African mobile numbers: 
+     // must start with +27
+     //then a digit 1-9 and 8 more digits (total length after the + is 9)
+     //
     public String checkRecipientCell(){
         if (recipient != null && recipient.matches("^\\+27[1-9]\\d{8}$")){ //reference way of using "matches": geeksforgeeks
             return "Cell phone number successfully captured.";
@@ -158,19 +162,25 @@ public class Messages {
     
     //this method write stored messages to message json file as a simple JSON array.
     public void storedMessage(){
+        //creating a json builder 
         StringBuilder json = new StringBuilder("[\n");
-        for (int i = 0; i < storedMessages.size();i++){
-            Messages m = storedMessages.get(i);
-            json.append(" {\n")
-                .append("    \"messageID\": \"").append(esc(m.messageID)).append("\",\n")
+        //looping through the messages
+        for (int i = 0; i < storedMessages.size();i++){ //returns the number of messages in the list
+            //building each message object
+            Messages m = storedMessages.get(i); //gets the message at index [i]
+            
+            json.append(" {\n")//adding text to the json file
+                .append("    \"messageID\": \"").append(esc(m.messageID)).append("\",\n") //the esc means that it should escape special characters so that they shouldnt break the json file
                 .append("    \"messageHash\": \"").append(esc(m.messageHash)).append("\",\n")
                 .append("    \"recipient\": \"").append(esc(m.recipient)).append("\",\n")
                 .append("    \"message\": \"").append(esc(m.text)).append("\"\n")
+                    //short form of an if-statement
                 .append("  }").append(i < storedMessages.size() - 1 ? "," : "").append("\n");    
         }
+        //finishing the json file
         json.append("]");
-        try (FileWriter fw = new FileWriter ("message.json")){
-            fw.write(json.toString());
+        //writing to it
+        try{Files.writeString(Path.of("message.json"), json.toString()); //try and catch handles errors if writing to the file fails and the tostring converts the completed builder into String.
         } catch (IOException e){
             System.out.println("Could not write JSON file: "+ e.getMessage());
         }

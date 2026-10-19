@@ -45,7 +45,6 @@ public class JavaMessengerApplication {
         Account newAccount = new Account(fname,fsurname,fusername,fpass,fphone);
         
         //pass the account into Login helper
-        //move this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         Login registrationLogin = new Login (newAccount);
         
         //registering
@@ -106,7 +105,8 @@ public class JavaMessengerApplication {
            
            //-----QUICK CHAT STARTS HERE----
            //Quick chat: ask the user how many messages the user will enter in this session
-           System.out.println("Welcome to QuickChat.");
+           System.out.println("------Welcome to QuickChat.-------");
+           System.out.println("                                  ");
            int maxMessages = readInt(userInput, "How many messages do you wish to enter?");
            int entered = 0;
            boolean running = true;

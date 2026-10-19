@@ -160,6 +160,28 @@ public class MessageTestClass {
     public void invalid_choice_return_valid(){
         assertEquals("Invalid option", m1.sentMessage(9));
     }
+    
+    //
+    @Test
+    //test that a valid message ID containing 10 digits is accepted
+    public void ID_exactly_10_digits(){
+        Messages valid = new Messages("1234567890", 0, "+27718693002", "Hello");
+        assertTrue(valid.checkMessageID());
+    }
+    
+    @Test
+    //tests that a message ID with less than 10 digits is rejected
+    public void message_ID_too_short(){
+        Messages invalid = new Messages("1245", 0, "+27718693002", "Hello");
+        assertFalse(invalid.checkMessageID());
+    }
+    
+    @Test
+    //tests that a message id containing letters instead of just digits is rejected. 
+    public void message_ID_only_digits(){
+        Messages invalid = new Messages("12345abcde", 0, "+27718693002", "Hello");
+        assertFalse(invalid.checkMessageID());
+    }
 }   
 
  
