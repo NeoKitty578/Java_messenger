@@ -13,11 +13,12 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Neo
+ * @author Neo lebea ST10507528
  */
+//
 public class NewEmptyJUnitTest {
     private Account validAccount;
-    private Login validLogin;
+    private Login validLogin; 
     
     @Before
     public void setup(){
