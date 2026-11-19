@@ -70,7 +70,7 @@ public class Login {
        //checking if the password meets the standard format
        if (phonenumber == null)return false;
        //prefixes = 06,07,08, with or without the plus sign
-            String standardRegex = "^(\\+27|0)[6-8][0-9]{8}$"; 
+            String standardRegex = "^\\+27[6-8][0-9]{8}$"; 
             
             return phonenumber.matches(standardRegex);
     }

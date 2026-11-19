@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
  *
  * @author Neo
  */
-public class MessageTestClass {
+public class MessagesTest {
     //the two messages
     private Messages m1;
     private Messages m2;
@@ -120,7 +120,7 @@ public class MessageTestClass {
     @Test
     //if nothing has been sent output be no messages sent to in this sessions
     public void print_Messages_when_no_message_is_sent(){
-        assertEquals("No messages sent to in this session", Messages.printMessages());
+        assertEquals("No messages sent in this session.", Messages.printMessages());
     }
     
     @Test

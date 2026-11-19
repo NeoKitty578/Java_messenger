@@ -101,7 +101,7 @@ public class JavaMessengerApplication {
                userInput.close();
                return;
            } 
-           System.out.println("You are now loggen in. Continue with the application.");
+           System.out.println("You are now logged in. Continue with the application.");
            
            //-----QUICK CHAT STARTS HERE----
            //Quick chat: ask the user how many messages the user will enter in this session
@@ -176,7 +176,7 @@ public class JavaMessengerApplication {
             //if loop fails let the user re-enter
         }
         //display the genereated ID AND hash to user
-        System.out.println("Messages ID genereated: "+ m.getMessageID());
+        System.out.println("Messages ID generated: "+ m.getMessageID());
         System.out.println("Message Hash: "+ m.getMessageHash());
         
         //ask the user what to do with the message
