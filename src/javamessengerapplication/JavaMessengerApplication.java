@@ -194,7 +194,7 @@ public class JavaMessengerApplication {
         }
         System.out.println(m.sentMessage(choice));
         //added line 197 and 198 for part 3
-        if (choice == 1){
+        if (choice == 1){ // show the full message details only when the message was actually sent
     System.out.println(m.printMessage()); // details straight after sending
 }
     }
@@ -243,7 +243,7 @@ private static void storedMessagesMenu(Scanner userInput, String sender){
             case "a"-> System.out.println(Messages.displaySenderAndRecipient(sender));
             
             //display the longest message
-            case "b"-> System.out.println(Messages.longestMessage());
+            case "b"-> System.out.println(Messages.findLongest());
             
             //search for messages by its ID ans also show the recipient and message text
             case "c"->{

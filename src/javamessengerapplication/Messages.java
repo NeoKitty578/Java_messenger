@@ -331,16 +331,7 @@ public class Messages {
         return sb.toString();
     }
     
-    //longest message (sent and stored)
-    public static String longestMessage(){
-        List<Messages> all = allMessages();
-        if (all.isEmpty()) return "No messages available.";
-        int longest = 0;
-        for (int i = 1; i < all.size(); i++){
-            if (all.get(i).text.length() > all.get(longest).text.length()) longest = i;
-        }
-        return all.get(longest).text;
-    }
+ 
     
     //search by message ID
     public static Messages findByID(String id){
@@ -407,4 +398,22 @@ public class Messages {
               .append(" | Message: ").append(m.text).append("\n");
         }
     }
+    
+// finds the message with the longest text, searching sent first, then stored
+  public static Messages findLongest() {
+    List<Messages> all = allMessages();
+    if (all.isEmpty()) return null;
+    int longest = 0;
+    for (int i = 1; i < all.size(); i++) {
+        if (all.get(i).text.length() > all.get(longest).text.length()) longest = i;
+    }
+    return all.get(longest);
+}
+    
+    public static String longestMessage(){
+    Messages m = findLongest();
+    return (m == null) ? "No messages available." : m.text;
+}
+    
+    
     }
